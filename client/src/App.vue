@@ -1,5 +1,5 @@
 <script setup>//compositions
-import { ref } from 'vue';
+import { ref ,onMounted} from 'vue';
 const name = ref('Vue.js');
 const status = ref('active');
 const tasks = ref(["task1", "task2"]);
@@ -22,6 +22,19 @@ function addTask() {
   newTask.value = "";
 
 }
+function deleteTask(id) {
+  tasks.value.splice(id, 1);
+}
+onMounted(async() => {
+ try{
+    const res = await fetch('http://jsonplaceholder.typicode.com/todos');
+    const data = await res.json();
+    tasks.value = data.map((task) => task.title);
+  } catch (err) {
+    console.log(err);
+ }
+})
+
 </script>
 <template>
   <h1>{{ name }}</h1>
@@ -35,7 +48,12 @@ function addTask() {
 
   </form>
   <ul>
-    <li v-for="task in tasks" :key="task">{{ task }}</li>
+    <li v-for="(task,index) in tasks" :key="task"><span>
+
+      {{ task }}
+    </span>
+    <button @click="deleteTask(index)">Delete</button>
+  </li>
   </ul>
   <a :href="link">Google</a>
   <!-- <button v-on:click="changeStatus">Change Status</button> -->
