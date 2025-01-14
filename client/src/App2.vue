@@ -1,17 +1,23 @@
-<script setup>//compositions
-import { ref } from 'vue';
-const name = ref('Vue.js');
-const status = ref('active');
-const tasks = ref(["task1", "task2"]);
-const link = ref("http://www.google.com");
-
-const changeStatus = () => {
-  if (status.value == "active") {
-    status.value = "pending";
-  } else if (status.value == "pending") {
-    status.value = "inactive";
-  } else {
-    status.value = "active";
+<script>//options
+export default {
+  data() {
+    return {
+      name: 'Vue.js',
+      status: "active",
+      tasks: ["task1", "task2"],
+      link: "http://www.google.com"
+    }
+  },
+  methods: {
+    changeStatus() {
+      if (this.status == "active") {
+        this.status = "pending";
+      } else if (this.status == "pending") {
+        this.status = "inactive";
+      } else {
+        this.status = "active";
+      }
+    }
   }
 }
 </script>
