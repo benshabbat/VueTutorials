@@ -5,6 +5,12 @@ export default {
       name: 'Vue.js',
       status: "active",
       tasks:["task1","task2"],
+      link: "http://www.google.com"
+    }
+  },
+  methods: {
+    changeStatus() {
+      this.status = "pending";
     }
   }
 }
@@ -17,4 +23,6 @@ export default {
   <ul>
     <li v-for="task in tasks" :key="task" >{{ task }}</li>
   </ul>
+  <a :href="link">Google</a>
+  <button v-on:click="changeStatus">Change Status</button>
 </template>
