@@ -1,9 +1,12 @@
 <script setup>
+import { ref,defineComponent } from 'vue';
 import jobsData from '../data/jobsData.json';
 import JobCard from './JobCard.vue';
-import { ref } from 'vue';
 const jobs = ref(jobsData.jobs)
-
+defineProps({
+    limit: Number,
+    showButton: {Boolean, default: false}
+})
 </script>
 <template>
     <section class="bg-green-50 px-4 py-10">
@@ -12,9 +15,16 @@ const jobs = ref(jobsData.jobs)
                 Browse Jobs
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <JobCard v-for="job in jobs" :key="job.id" :job="job" />
+                <JobCard v-for="job in jobs.slice(0,limit||jobs.length)" :key="job.id" :job="job" />
             </div>
         </div>
     </section>
-
+  
+    <section v-if="showButton" class="m-auto max-w-lg my-10 px-6">
+      <a
+        href="/jobs"
+        class="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700"
+        >View All Jobs</a
+      >
+    </section>
 </template>
