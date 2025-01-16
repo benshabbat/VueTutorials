@@ -48,4 +48,6 @@ const truncatedDescription = computed(() => {
             </div>
         </div>
     </div>
+
+
 </template>
