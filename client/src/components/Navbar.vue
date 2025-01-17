@@ -9,10 +9,10 @@ import Logo from './Logo.vue';
           <Logo />
           <div class="md:ml-auto">
             <div class="flex space-x-2">
-              <a href="index.html"
+              <a href="/"
                 class="text-white bg-green-900 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">Home</a>
-              <a href="jobs.html" class="text-white hover:bg-green-900 hover:text-white rounded-md px-3 py-2">Jobs</a>
-              <a href="add-job.html" class="text-white hover:bg-green-900 hover:text-white rounded-md px-3 py-2">Add
+              <a href="/jobs" class="text-white hover:bg-green-900 hover:text-white rounded-md px-3 py-2">Jobs</a>
+              <a href="/jobs/add" class="text-white hover:bg-green-900 hover:text-white rounded-md px-3 py-2">Add
                 Job</a>
             </div>
           </div>
