@@ -2,11 +2,11 @@
 import Logo from './Logo.vue';
 import { RouterLink, useRoute } from 'vue-router';
 
-const isActie = (route) => {
+const isActive = (route) => {
   return useRoute().path === route;
 }
 const classRouteActive =
-  (route) => isActie(route) ? ' bg-green-900 hover:bg-gray-900' : 'text-white hover:bg-green-900 hover:text-white';
+  (route) => isActive(route) ? ' bg-green-900 hover:bg-gray-900' : 'text-white hover:bg-green-900 hover:text-white';
 
 const classRoute = "text-white rounded-md px-3 py-2"
 </script>
