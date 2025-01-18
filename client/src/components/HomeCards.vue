@@ -11,7 +11,7 @@ import {RouterLink} from 'vue-router';
                     <p class="mt-2 mb-4">
                         Browse our Vue jobs and start your career today
                     </p>
-                    <RouterLink to="jobs.html" class="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700">
+                    <RouterLink to="/jobs" class="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700">
                         Browse Jobs
                     </RouterLink>
                 </Card>
@@ -20,7 +20,7 @@ import {RouterLink} from 'vue-router';
                     <p class="mt-2 mb-4">
                         List your job to find the perfect developer for the role
                     </p>
-                    <RouterLink to="add-job.html"
+                    <RouterLink to="/jobs/add"
                         class="inline-block bg-green-500 text-white rounded-lg px-4 py-2 hover:bg-green-600">
                         Add Job
                     </RouterLink>
