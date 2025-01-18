@@ -1,6 +1,14 @@
 <script setup>
 import Logo from './Logo.vue';
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRoute } from 'vue-router';
+
+const isActie = (route) => {
+  return useRoute().path === route;
+}
+const classRouteActive =
+  (route) => isActie(route) ? ' bg-green-900 hover:bg-gray-900' : 'text-white hover:bg-green-900 hover:text-white';
+
+const classRoute = "text-white rounded-md px-3 py-2"
 </script>
 <template>
   <nav class="bg-green-700 border-b border-green-500">
@@ -10,12 +18,10 @@ import { RouterLink } from 'vue-router';
           <Logo />
           <div class="md:ml-auto">
             <div class="flex space-x-2">
-              <RouterLink to="/"
-                class="text-white bg-green-900 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">Home
+              <RouterLink to="/" :class="[classRouteActive('/'),classRoute]">Home</RouterLink>
+              <RouterLink to="/jobs" :class="[classRouteActive('/jobs'),classRoute]">Jobs
               </RouterLink>
-              <RouterLink to="/jobs" class="text-white hover:bg-green-900 hover:text-white rounded-md px-3 py-2">Jobs
-              </RouterLink>
-              <RouterLink to="/jobs/add" class="text-white hover:bg-green-900 hover:text-white rounded-md px-3 py-2">Add
+              <RouterLink to="/jobs/add" :class="[classRouteActive('/jobs/add'),classRoute]">Add
                 Job</RouterLink>
             </div>
           </div>
