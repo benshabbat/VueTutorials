@@ -1,13 +1,19 @@
 <script setup>
-import { ref,defineComponent } from 'vue';
-import jobsData from '../data/jobsData.json';
+import { ref,onMounted } from 'vue';
 import JobCard from './JobCard.vue';
 import {RouterLink} from 'vue-router';
-const jobs = ref(jobsData.jobs)
+import axios from 'axios';
 defineProps({
     limit: Number,
     showButton: {Boolean, default: false}
 })
+const jobs = ref([])
+
+onMounted(async () => {
+    const response = await axios.get('http://localhost:5000/jobs');
+    jobs.value = response.data;
+})
+
 </script>
 <template>
     <section class="bg-green-50 px-4 py-10">
